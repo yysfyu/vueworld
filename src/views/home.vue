@@ -1,10 +1,13 @@
 <template>
     <div class="home">
         <h1>{{ msg }}</h1>
-        <slotchild v-slot="timeObj"  :end="countDown" :isMiniSecond="false">
-            <span>
-                {{timeObj.d}}天{{timeObj.hh}}小时{{timeObj.mm}}分钟{{timeObj.ss}}秒
-            </span>     
+        <slotchild :end="countDown" :isMiniSecond="false">
+            <template v-slot:timecutdown="timeObj">
+                <span>
+                    {{timeObj.timecutdown.d}}天{{timeObj.timecutdown.hh}}小时{{timeObj.timecutdown.mm}}分钟{{timeObj.timecutdown.ss}}秒
+                </span>  
+            </template>
+               
         </slotchild>
 
         <slotchild v-slot="timeObj"  :time="60" :isMiniSecond="false">
